@@ -167,7 +167,7 @@ const TelemetrySection = () => {
                         <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(68,107,158,0.1)_50%,transparent_75%,transparent_100%)] bg-[length:250%_250%,100%_100%] bg-[position:-100%_0,0_0] bg-no-repeat transition-[background-position_0s] duration-[1500ms] group-hover:bg-[position:200%_0,0_0]"></div>
                         <div className="text-center p-8">
                           <div className={`w-24 h-24 mx-auto bg-${sensor.color}-500/20 rounded-full flex items-center justify-center mb-4 animate-pulse`}>
-                            {React.cloneElement(sensor.icon as React.ReactElement, { size: 48 })}
+                            {React.cloneElement(sensor.icon as React.ReactElement, { size: 48 } as any)}
                           </div>
                           <span className="text-slate-500 font-mono text-sm uppercase tracking-widest">Visualización en Vivo</span>
                         </div>
