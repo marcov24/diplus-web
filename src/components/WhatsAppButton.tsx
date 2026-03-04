@@ -15,7 +15,7 @@ const WhatsAppButton = () => {
   const [showChat, setShowChat] = useState(false);
   const [message, setMessage] = useState('');
 
-  const defaultMessage = 'Hola, me interesa conocer más sobre DIPLUS.';
+  const defaultMessage = 'Hola, me interesa conocer más sobre ustedes.';
 
   const handleSend = () => {
     const text = message.trim() || defaultMessage;

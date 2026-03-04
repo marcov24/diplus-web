@@ -13,7 +13,7 @@ const EmailButton = () => {
   const handleSend = () => {
     const subject = encodeURIComponent(`Consulta DIPLUS - ${form.name || 'Visitante'}`);
     const body = encodeURIComponent(
-      `Nombre: ${form.name}\nCorreo: ${form.email}\n\nMensaje:\n${form.message || 'Me interesa conocer más sobre DIPLUS.'}`
+      `Nombre: ${form.name}\nCorreo: ${form.email}\n\nMensaje:\n${form.message || 'Me interesa conocer más sobre ustedes.'}`
     );
     window.open(`mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`, '_self');
     setSent(true);
