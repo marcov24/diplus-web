@@ -77,7 +77,7 @@ const WhatsAppButton = () => {
               </div>
               <div>
                 <h4 className="text-white font-semibold text-sm">Gunjop DIPLUS</h4>
-                <p className="text-green-100 text-xs">En línea</p>
+                {/* <p className="text-green-100 text-xs">En línea</p> */}
               </div>
             </div>
 
