@@ -197,81 +197,159 @@ export const MOCK_CONSUMED_BY_PERIODS = [
 ];
 
 export const MOCK_ROUTES_PATHS: Record<string, { lat: number, lng: number }[]> = {
-  // Ruta_1: Un recorrido largo y curvo (subiendo por la rampa principal del tajo)
+  // Ruta_1: Rampa principal del tajo – subida larga desde el fondo del pit al norte (zona NW)
   "Ruta_1": [
-    { lat: -6.048, lng: -80.860 }, // Fondo del pit
-    { lat: -6.046, lng: -80.862 },
-    { lat: -6.045, lng: -80.864 },
-    { lat: -6.043, lng: -80.865 }, // Curva abierta hacia el norte
-    { lat: -6.041, lng: -80.864 },
-    { lat: -6.039, lng: -80.862 },
-    { lat: -6.038, lng: -80.859 }, // Subiendo a superficie
-    { lat: -6.039, lng: -80.856 },
-    { lat: -6.040, lng: -80.853 },
-    { lat: -6.042, lng: -80.851 }, // Llegada a zona de descarga norte
+    { lat: -6.0510, lng: -80.8680 },
+    { lat: -6.0507, lng: -80.8683 },
+    { lat: -6.0504, lng: -80.8685 },
+    { lat: -6.0501, lng: -80.8688 },
+    { lat: -6.0498, lng: -80.8690 },
+    { lat: -6.0494, lng: -80.8692 },
+    { lat: -6.0490, lng: -80.8693 },
+    { lat: -6.0486, lng: -80.8692 },
+    { lat: -6.0482, lng: -80.8690 },
+    { lat: -6.0479, lng: -80.8687 },
+    { lat: -6.0476, lng: -80.8684 },
+    { lat: -6.0473, lng: -80.8680 },
+    { lat: -6.0470, lng: -80.8676 },
+    { lat: -6.0468, lng: -80.8672 },
+    { lat: -6.0466, lng: -80.8668 },
+    { lat: -6.0464, lng: -80.8664 },
+    { lat: -6.0463, lng: -80.8660 },
+    { lat: -6.0462, lng: -80.8656 },
+    { lat: -6.0461, lng: -80.8652 },
+    { lat: -6.0460, lng: -80.8648 },
+    { lat: -6.0460, lng: -80.8644 },
+    { lat: -6.0461, lng: -80.8640 },
+    { lat: -6.0463, lng: -80.8637 },
+    { lat: -6.0465, lng: -80.8634 },
+    { lat: -6.0468, lng: -80.8632 },
   ],
-  // Ruta_2: Ruta en ZigZag (simulando maniobras en zonas de carguío)
+  // Ruta_2: Zona de carguío – zigzag en zona sureste, alejada del centro
   "Ruta_2": [
-    { lat: -6.042, lng: -80.857 },
-    { lat: -6.041, lng: -80.858 }, // Avanza
-    { lat: -6.042, lng: -80.859 }, // Reversa/Zig
-    { lat: -6.041, lng: -80.860 }, // Avanza
-    { lat: -6.042, lng: -80.861 }, // Reversa/Zag
-    { lat: -6.041, lng: -80.862 }, // Sale de zona
-    { lat: -6.040, lng: -80.864 },
-    { lat: -6.041, lng: -80.867 },
+    { lat: -6.0500, lng: -80.8540 },
+    { lat: -6.0498, lng: -80.8543 },
+    { lat: -6.0496, lng: -80.8546 },
+    { lat: -6.0498, lng: -80.8549 },
+    { lat: -6.0496, lng: -80.8552 },
+    { lat: -6.0494, lng: -80.8555 },
+    { lat: -6.0496, lng: -80.8558 },
+    { lat: -6.0494, lng: -80.8561 },
+    { lat: -6.0492, lng: -80.8564 },
+    { lat: -6.0494, lng: -80.8567 },
+    { lat: -6.0492, lng: -80.8570 },
+    { lat: -6.0490, lng: -80.8573 },
+    { lat: -6.0488, lng: -80.8576 },
+    { lat: -6.0486, lng: -80.8579 },
+    { lat: -6.0484, lng: -80.8582 },
+    { lat: -6.0482, lng: -80.8585 },
+    { lat: -6.0480, lng: -80.8588 },
+    { lat: -6.0478, lng: -80.8590 },
+    { lat: -6.0476, lng: -80.8588 },
+    { lat: -6.0474, lng: -80.8585 },
+    { lat: -6.0476, lng: -80.8582 },
   ],
-  // Ruta_3: Un loop cerrado pero irregular (circuito de acarreo continuo)
+  // Ruta_3: Circuito de acarreo – loop amplio por el norte del área
   "Ruta_3": [
-    { lat: -6.044, lng: -80.857 }, // Inicio sureste
-    { lat: -6.042, lng: -80.856 },
-    { lat: -6.040, lng: -80.857 }, // Sube por el este
-    { lat: -6.038, lng: -80.859 },
-    { lat: -6.038, lng: -80.863 }, // Cruza al oeste por el norte
-    { lat: -6.040, lng: -80.865 },
-    { lat: -6.043, lng: -80.863 }, // Baja por el oeste
-    { lat: -6.045, lng: -80.860 },
-    { lat: -6.045, lng: -80.858 }, // Retorna al punto de origen
-    { lat: -6.044, lng: -80.857 },
+    { lat: -6.0370, lng: -80.8600 },
+    { lat: -6.0373, lng: -80.8603 },
+    { lat: -6.0376, lng: -80.8607 },
+    { lat: -6.0378, lng: -80.8611 },
+    { lat: -6.0380, lng: -80.8615 },
+    { lat: -6.0381, lng: -80.8619 },
+    { lat: -6.0381, lng: -80.8623 },
+    { lat: -6.0380, lng: -80.8627 },
+    { lat: -6.0378, lng: -80.8630 },
+    { lat: -6.0375, lng: -80.8633 },
+    { lat: -6.0372, lng: -80.8635 },
+    { lat: -6.0369, lng: -80.8636 },
+    { lat: -6.0366, lng: -80.8635 },
+    { lat: -6.0363, lng: -80.8633 },
+    { lat: -6.0361, lng: -80.8630 },
+    { lat: -6.0360, lng: -80.8626 },
+    { lat: -6.0360, lng: -80.8622 },
+    { lat: -6.0361, lng: -80.8618 },
+    { lat: -6.0363, lng: -80.8614 },
+    { lat: -6.0365, lng: -80.8611 },
+    { lat: -6.0367, lng: -80.8607 },
+    { lat: -6.0369, lng: -80.8603 },
+    { lat: -6.0370, lng: -80.8600 },
   ],
-  // Ruta_4: Recorrido corto con curvas pronunciadas (zona de mantenimiento/talleres)
+  // Ruta_4: Zona de talleres – circuito corto al sureste
   "Ruta_4": [
-    { lat: -6.046, lng: -80.853 }, // Entrada talleres
-    { lat: -6.047, lng: -80.854 },
-    { lat: -6.047, lng: -80.855 }, // Curva en U
-    { lat: -6.046, lng: -80.855 },
-    { lat: -6.045, lng: -80.853 }, // Salida
-    { lat: -6.044, lng: -80.851 },
+    { lat: -6.0530, lng: -80.8500 },
+    { lat: -6.0528, lng: -80.8503 },
+    { lat: -6.0526, lng: -80.8506 },
+    { lat: -6.0524, lng: -80.8509 },
+    { lat: -6.0523, lng: -80.8512 },
+    { lat: -6.0524, lng: -80.8515 },
+    { lat: -6.0526, lng: -80.8517 },
+    { lat: -6.0528, lng: -80.8519 },
+    { lat: -6.0530, lng: -80.8520 },
+    { lat: -6.0532, lng: -80.8519 },
+    { lat: -6.0534, lng: -80.8517 },
+    { lat: -6.0535, lng: -80.8514 },
+    { lat: -6.0535, lng: -80.8511 },
+    { lat: -6.0534, lng: -80.8508 },
+    { lat: -6.0533, lng: -80.8505 },
+    { lat: -6.0531, lng: -80.8502 },
+    { lat: -6.0530, lng: -80.8500 },
   ],
-  // Ruta_5: Trayectoria directa cruzando el pit con una ligera curva al final
+  // Ruta_5: Cruce diagonal largo – desde el suroeste hasta el noreste
   "Ruta_5": [
-    { lat: -6.041, lng: -80.868 }, // Extremo oeste
-    { lat: -6.042, lng: -80.865 },
-    { lat: -6.043, lng: -80.862 },
-    { lat: -6.044, lng: -80.859 }, // Cruza el centro
-    { lat: -6.045, lng: -80.856 },
-    { lat: -6.046, lng: -80.854 },
-    { lat: -6.048, lng: -80.853 }, // Curva hacia el sur
+    { lat: -6.0520, lng: -80.8720 },
+    { lat: -6.0517, lng: -80.8717 },
+    { lat: -6.0514, lng: -80.8714 },
+    { lat: -6.0511, lng: -80.8711 },
+    { lat: -6.0508, lng: -80.8708 },
+    { lat: -6.0505, lng: -80.8705 },
+    { lat: -6.0502, lng: -80.8702 },
+    { lat: -6.0499, lng: -80.8699 },
+    { lat: -6.0496, lng: -80.8696 },
+    { lat: -6.0493, lng: -80.8693 },
+    { lat: -6.0490, lng: -80.8690 },
+    { lat: -6.0487, lng: -80.8687 },
+    { lat: -6.0484, lng: -80.8684 },
+    { lat: -6.0481, lng: -80.8681 },
+    { lat: -6.0478, lng: -80.8678 },
+    { lat: -6.0475, lng: -80.8675 },
+    { lat: -6.0472, lng: -80.8672 },
+    { lat: -6.0469, lng: -80.8669 },
+    { lat: -6.0466, lng: -80.8666 },
+    { lat: -6.0463, lng: -80.8663 },
+    { lat: -6.0460, lng: -80.8660 },
   ],
-  // Ruta_6: Otro zig-zag, más extenso, simulando bajada por rampa estrecha
+  // Ruta_6: Rampa de bajada zigzag – zona extremo norte
   "Ruta_6": [
-    { lat: -6.038, lng: -80.855 }, // Arriba este
-    { lat: -6.039, lng: -80.857 }, // Baja diagonal oeste
-    { lat: -6.039, lng: -80.855 }, // Giro en horquilla este
-    { lat: -6.041, lng: -80.858 }, // Baja diagonal oeste
-    { lat: -6.041, lng: -80.856 }, // Giro en horquilla este
-    { lat: -6.043, lng: -80.859 }, // Baja fondo
-    { lat: -6.044, lng: -80.860 },
+    { lat: -6.0350, lng: -80.8550 },
+    { lat: -6.0353, lng: -80.8553 },
+    { lat: -6.0355, lng: -80.8550 },
+    { lat: -6.0358, lng: -80.8553 },
+    { lat: -6.0360, lng: -80.8550 },
+    { lat: -6.0363, lng: -80.8553 },
+    { lat: -6.0365, lng: -80.8550 },
+    { lat: -6.0368, lng: -80.8553 },
+    { lat: -6.0370, lng: -80.8556 },
+    { lat: -6.0372, lng: -80.8559 },
+    { lat: -6.0374, lng: -80.8562 },
+    { lat: -6.0376, lng: -80.8565 },
+    { lat: -6.0378, lng: -80.8568 },
+    { lat: -6.0380, lng: -80.8571 },
+    { lat: -6.0382, lng: -80.8574 },
+    { lat: -6.0384, lng: -80.8577 },
+    { lat: -6.0386, lng: -80.8580 },
+    { lat: -6.0388, lng: -80.8583 },
+    { lat: -6.0390, lng: -80.8586 },
   ],
 };
 
-// Modifying the mock live trucks to start at an index of their respective route
+// Trucks start at different positions on their widely separated routes
 export const MOCK_LIVE_TRUCKS = [
   { id: 1, unit: "CAM-101", routeId: "Ruta_1", pathIndex: 0, speed: 32, status: "En Ruta", operator: "Juan Pérez", heading: 45 },
-  { id: 2, unit: "CAM-102", routeId: "Ruta_2", pathIndex: 3, speed: 0, status: "Cargando", operator: "Luis Gómez", heading: 180 },
-  { id: 3, unit: "CAM-103", routeId: "Ruta_3", pathIndex: 1, speed: 28, status: "En Ruta", operator: "Carlos Ruiz", heading: 270 },
-  { id: 4, unit: "CAM-104", routeId: "Ruta_4", pathIndex: 4, speed: 0, status: "Descargando", operator: "Ana Torres", heading: 90 },
-  { id: 5, unit: "CAM-105", routeId: "Ruta_5", pathIndex: 6, speed: 35, status: "En Ruta", operator: "Pedro Díaz", heading: 315 },
-  { id: 6, unit: "CAM-106", routeId: "Ruta_6", pathIndex: 5, speed: 0, status: "Mantenimiento", operator: "--", heading: 0 },
+  { id: 2, unit: "CAM-102", routeId: "Ruta_2", pathIndex: 5, speed: 0, status: "Cargando", operator: "Luis Gómez", heading: 180 },
+  { id: 3, unit: "CAM-103", routeId: "Ruta_3", pathIndex: 0, speed: 28, status: "En Ruta", operator: "Carlos Ruiz", heading: 270 },
+  { id: 4, unit: "CAM-104", routeId: "Ruta_4", pathIndex: 8, speed: 0, status: "Descargando", operator: "Ana Torres", heading: 90 },
+  { id: 5, unit: "CAM-105", routeId: "Ruta_5", pathIndex: 0, speed: 35, status: "En Ruta", operator: "Pedro Díaz", heading: 315 },
+  { id: 6, unit: "CAM-106", routeId: "Ruta_6", pathIndex: 10, speed: 0, status: "Mantenimiento", operator: "--", heading: 0 },
 ];
 
