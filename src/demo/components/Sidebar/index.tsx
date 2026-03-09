@@ -103,11 +103,11 @@ const NavMenu = ({ embedded, onNavigate, currentPath }: NavMenuProps) => {
 
   return (
     <div
-      className={`sidebar--container border-r border-[#B1B0B1] ${embedded ? 'sidebar--embedded' : ''}`}
+      className={`sidebar--container border-r border-slate-800 ${embedded ? 'sidebar--embedded' : ''}`}
       onMouseEnter={() => setIsSidebarOpen(true)}
       onMouseLeave={() => setIsSidebarOpen(false)}
     >
-      <div className={`logo--container p-4 font-bold text-white text-xl bg-[#E2231A] flex items-center ${isSidebarOpen ? "justify-start" : "justify-center"}`}>
+      <div className={`logo--container p-4 font-bold text-white text-xl bg-slate-900 border-b border-slate-800 flex items-center ${isSidebarOpen ? "justify-start" : "justify-center"}`}>
         <img
           src={isSidebarOpen ? GunjopLogoWide : GunjopIcon}
           alt="Gunjop"
@@ -127,30 +127,30 @@ const NavMenu = ({ embedded, onNavigate, currentPath }: NavMenuProps) => {
                 onClick={() => toggleMenu(section.id)}
                 className={`list-header h-8 flex gap-2 items-center justify-center
                 text-xs font-bold uppercase transition-colors duration-200 rounded-full cursor-pointer
-                ${isActive ? "bg-[#ff5556]" : ""}
+                ${isActive ? "bg-blue-500/10 text-blue-400" : "hover:bg-slate-800/50"}
               `}
               >
                 <div className="main-icon pl-3">
                   <SectionIcon
                     size={16}
-                    className={isActive ? "text-white" : "text-[#565B5D]"}
+                    className={isActive ? "text-blue-400" : "text-slate-500"}
                   />
                 </div>
                 <span
-                  className={`menu-title flex-1 text-left ${isActive ? "text-white" : "text-zinc-600"}`}
+                  className={`menu-title flex-1 text-left ${isActive ? "text-blue-400" : "text-slate-400"}`}
                 >
                   {section.label}
                 </span>
                 <MdKeyboardArrowDown
                   className={`h-4 w-4 transition-transform duration-300 mr-2 expanded-icon ${isOpen ? "rotate-180" : "rotate-0"
-                    } ${isActive ? "text-white" : "text-zinc-500"}`}
+                    } ${isActive ? "text-blue-400" : "text-slate-500"}`}
                 />
               </button>
               <div
                 className={`w-full pl-5 overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
                   }`}
               >
-                <ul className="flex flex-col text-left pt-1 relative after:absolute after:-left-1 after:top-0 after:w-px after:h-full after:bg-zinc-300 ">
+                <ul className="flex flex-col text-left pt-1 relative after:absolute after:-left-1 after:top-0 after:w-px after:h-full after:bg-slate-800">
                   {section.items.map((item) => {
                     const isItemActive = (item.href === "/demo" && activePath === "/demo") ||
                       (item.href !== "/demo" && (activePath === item.href || activePath.startsWith(item.href + "/")));
@@ -161,14 +161,14 @@ const NavMenu = ({ embedded, onNavigate, currentPath }: NavMenuProps) => {
                         <li key={item.label} className="Item-menu cursor-pointer">
                           <button
                             onClick={() => onNavigate?.(item.href)}
-                            className={`text-[12px] font-semibold hover:text-[#ff5556] hover:bg-[#E2231A]/10 transition-colors duration-200 flex items-center px-3 leading-[.9rem] group h-7 rounded-2xl w-full text-left ${isItemActive
-                              ? "text-[#ff5556] bg-[#E2231A]/10"
-                              : "text-[#71717a]"
+                            className={`text-[12px] font-semibold hover:text-blue-400 hover:bg-slate-800/50 transition-colors duration-200 flex items-center px-3 leading-[.9rem] group h-7 rounded-2xl w-full text-left ${isItemActive
+                              ? "text-blue-400 bg-blue-500/10"
+                              : "text-slate-400"
                               }`}
                           >
                             <span
-                              className={`w-full leading-[.9rem] transition-all duration-500 ease-in-out will-change-transform translate-x-[0rem] group-hover:translate-x-[.4rem] truncate ${isItemActive ? "text-[#ff5556]" : "text-[#71717a]"
-                                } group-hover:text-black`}
+                              className={`w-full leading-[.9rem] transition-all duration-500 ease-in-out will-change-transform translate-x-[0rem] group-hover:translate-x-[.4rem] truncate ${isItemActive ? "text-blue-400" : "text-slate-400"
+                                } group-hover:text-blue-300`}
                             >
                               {item.label}
                             </span>
@@ -184,17 +184,17 @@ const NavMenu = ({ embedded, onNavigate, currentPath }: NavMenuProps) => {
                           to={item.href}
                           end={item.href === "/demo"}
                           className={({ isActive }) =>
-                            `text-[12px] font-semibold hover:text-[#ff5556] hover:bg-[#E2231A]/10 transition-colors duration-200 flex items-center px-3 leading-[.9rem] group h-7 rounded-2xl ${isActive
-                              ? "text-[#ff5556] bg-[#E2231A]/10"
-                              : "text-[#71717a]"
+                            `text-[12px] font-semibold hover:text-blue-400 hover:bg-slate-800/50 transition-colors duration-200 flex items-center px-3 leading-[.9rem] group h-7 rounded-2xl ${isActive
+                              ? "text-blue-400 bg-blue-500/10"
+                              : "text-slate-400"
                             }`
                           }
                         >
                           {({ isActive }) => (
                             <span
                               className={`w-full leading-[.9rem] transition-all duration-500 ease-in-out will-change-transform translate-x-[0rem] group-hover:translate-x-[.4rem] truncate 
-                              ${isActive ? "text-[#ff5556]" : "text-[#71717a]"} 
-                              group-hover:text-black`}
+                              ${isActive ? "text-blue-400" : "text-slate-400"} 
+                              group-hover:text-blue-300`}
                             >
                               {item.label}
                             </span>

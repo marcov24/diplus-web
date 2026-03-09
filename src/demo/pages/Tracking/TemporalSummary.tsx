@@ -27,15 +27,37 @@ const getChartOptions = (
   rightTitle: string,
 ): Highcharts.Options => ({
   chart: { type: "column", backgroundColor: "transparent", height: 350 },
-  title: { text: title, align: "left", style: { fontSize: "16px", fontWeight: "bold" } },
-  xAxis: { categories, crosshair: true },
+  title: { text: title, align: "left", style: { fontSize: "16px", fontWeight: "bold", color: "#e2e8f0" } },
+  xAxis: {
+    categories,
+    crosshair: true,
+    labels: { style: { color: "#94a3b8" } },
+    lineColor: "#334155",
+    tickColor: "#334155",
+  },
   yAxis: [
-    { title: { text: leftTitle }, opposite: false },
-    { title: { text: rightTitle }, opposite: true },
+    {
+      title: { text: leftTitle, style: { color: "#94a3b8" } },
+      opposite: false,
+      labels: { style: { color: "#94a3b8" } },
+      gridLineColor: "#334155",
+    },
+    {
+      title: { text: rightTitle, style: { color: "#94a3b8" } },
+      opposite: true,
+      labels: { style: { color: "#94a3b8" } },
+      gridLineColor: "#334155",
+    },
   ],
-  tooltip: { shared: true },
+  tooltip: {
+    shared: true,
+    backgroundColor: "#1e293b",
+    style: { color: "#f8fafc" },
+    borderColor: "#334155",
+  },
   plotOptions: { column: { borderRadius: 4 } },
   credits: { enabled: false },
+  legend: { itemStyle: { color: "#cbd5e1" } },
   series,
 });
 
@@ -110,27 +132,27 @@ const TemporalSummary = () => {
 
   return (
     <>
-      <div className="flex flex-wrap items-center justify-between bg-white p-3 rounded-xl shadow-sm border border-gray-100 gap-3">
+      <div className="flex flex-wrap items-center justify-between bg-slate-900 p-3 rounded-xl border border-slate-800 gap-3">
         <div>
-          <h1 className="text-lg font-bold text-gray-800">Resumen Temporal</h1>
-          <p className="text-xs text-gray-500">Análisis de consumo y eficiencia por fecha</p>
+          <h1 className="text-lg font-bold text-slate-200">Resumen Temporal</h1>
+          <p className="text-xs text-slate-400">Análisis de consumo y eficiencia por fecha</p>
         </div>
         <div className="flex gap-2 items-center flex-wrap">
-          <label className="flex flex-col text-[10px] font-bold text-gray-700">
+          <label className="flex flex-col text-[10px] font-bold text-slate-300">
             Eje Izquierdo (Barras):
-            <select value={metrics.left} onChange={(e) => setMetrics((m) => ({ ...m, left: e.target.value as MetricType }))} className="text-xs border rounded px-2 py-1 mt-0.5">
+            <select value={metrics.left} onChange={(e) => setMetrics((m) => ({ ...m, left: e.target.value as MetricType }))} className="text-xs border border-slate-700 rounded px-2 py-1 mt-0.5 bg-slate-800 text-slate-200 outline-none">
               {Object.entries(METRIC_LABELS).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
             </select>
           </label>
-          <label className="flex flex-col text-[10px] font-bold text-gray-700">
+          <label className="flex flex-col text-[10px] font-bold text-slate-300">
             Eje Derecho (Línea):
-            <select value={metrics.right} onChange={(e) => setMetrics((m) => ({ ...m, right: e.target.value as MetricType }))} className="text-xs border rounded px-2 py-1 mt-0.5">
+            <select value={metrics.right} onChange={(e) => setMetrics((m) => ({ ...m, right: e.target.value as MetricType }))} className="text-xs border border-slate-700 rounded px-2 py-1 mt-0.5 bg-slate-800 text-slate-200 outline-none">
               {Object.entries(METRIC_LABELS).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
             </select>
           </label>
-          <label className="flex flex-col text-[10px] font-bold text-gray-700">
+          <label className="flex flex-col text-[10px] font-bold text-slate-300">
             Unidad:
-            <select value={unitFilter} onChange={(e) => setUnitFilter(e.target.value)} className="text-xs border rounded px-2 py-1 mt-0.5">
+            <select value={unitFilter} onChange={(e) => setUnitFilter(e.target.value)} className="text-xs border border-slate-700 rounded px-2 py-1 mt-0.5 bg-slate-800 text-slate-200 outline-none">
               <option value="all">Todas</option>
               {availableUnits.map((u) => <option key={u} value={u}>{u}</option>)}
             </select>
@@ -138,11 +160,11 @@ const TemporalSummary = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-2">
-        <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+      <div className="grid grid-cols-1 gap-2 mt-3">
+        <div className="bg-slate-900 p-6 rounded-xl border border-slate-800">
           <HighchartsReact highcharts={Highcharts} options={getChartOptions("Resumen Diario", aggregations.daily.categories, aggregations.daily.series, METRIC_LABELS[metrics.left], METRIC_LABELS[metrics.right])} />
         </div>
-        <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+        <div className="bg-slate-900 p-6 rounded-xl border border-slate-800">
           <HighchartsReact highcharts={Highcharts} options={getChartOptions("Resumen Semanal", aggregations.weekly.categories, aggregations.weekly.series, METRIC_LABELS[metrics.left], METRIC_LABELS[metrics.right])} />
         </div>
       </div>

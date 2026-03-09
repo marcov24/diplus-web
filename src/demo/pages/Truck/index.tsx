@@ -64,24 +64,24 @@ const TruckDashboard = () => {
       height: 400,
       marginTop: 30,
     },
-    title: { text: "gal/h promedio por día - Vista Lineal | Ruta: Ruta_1 | Todas las unidades", align: "center", style: { fontSize: "11px", color: "#6b7280", fontWeight: "normal" } },
+    title: { text: "gal/h promedio por día - Vista Lineal | Ruta: Ruta_1 | Todas las unidades", align: "center", style: { fontSize: "11px", color: "#94a3b8", fontWeight: "normal" } },
     xAxis: {
       categories: uniqueDates,
       crosshair: true,
-      labels: { style: { color: "#6b7280" } },
-      lineColor: "#e5e7eb",
-      tickColor: "#e5e7eb"
+      labels: { style: { color: "#94a3b8" } },
+      lineColor: "#334155",
+      tickColor: "#334155"
     },
     yAxis: {
       title: {
         text: metricType === "velocidad" ? "km/h" : metricType === "combustible" ? "gal" : "gal/h",
-        style: { color: "#4b5563", fontWeight: "bold" }
+        style: { color: "#e2e8f0", fontWeight: "bold" }
       },
       min: metricType === "velocidad" ? 30 : metricType === "combustible" ? 2 : 30,
       max: metricType === "velocidad" ? 50 : metricType === "combustible" ? 4 : 55,
       tickInterval: metricType === "velocidad" ? 5 : metricType === "combustible" ? 0.5 : 5,
-      gridLineColor: "#f3f4f6",
-      labels: { style: { color: "#6b7280" } }
+      gridLineColor: "#334155",
+      labels: { style: { color: "#94a3b8" } }
     },
     plotOptions: {
       spline: {
@@ -95,7 +95,7 @@ const TruckDashboard = () => {
     legend: {
       enabled: true,
       verticalAlign: 'bottom',
-      itemStyle: { color: "#4b5563", fontWeight: "bold" }
+      itemStyle: { color: "#e2e8f0", fontWeight: "bold" }
     },
     credits: { enabled: false },
     series: [
@@ -203,26 +203,26 @@ const TruckDashboard = () => {
     title: {
       text: `Ruta: ${routeFilter} | ${selectedTruck} | 2026-02-19 al 2026-03-06 | Total: ${rightStats.total} viajes`,
       align: "center",
-      style: { fontSize: "10px", color: "#6b7280", fontWeight: "normal" }
+      style: { fontSize: "10px", color: "#94a3b8", fontWeight: "normal" }
     },
     xAxis: {
       categories: bucketLabels,
-      labels: { rotation: -45, style: { fontSize: "9px", color: "#6b7280" } },
-      lineColor: "#e5e7eb"
+      labels: { rotation: -45, style: { fontSize: "9px", color: "#94a3b8" } },
+      lineColor: "#334155"
     },
     yAxis: [
       {
-        title: { text: "Cantidad de Viajes", style: { color: "#4b5563" } },
+        title: { text: "Cantidad de Viajes", style: { color: "#e2e8f0" } },
         min: 0, max: 32, tickInterval: 8,
-        gridLineColor: "#f3f4f6",
-        labels: { style: { color: "#6b7280" } }
+        gridLineColor: "#334155",
+        labels: { style: { color: "#94a3b8" } }
       },
       {
-        title: { text: "Densidad de Probabilidad", style: { color: "#ef4444" }, rotation: 270 },
+        title: { text: "Densidad de Probabilidad", style: { color: "#f87171" }, rotation: 270 },
         min: 0, max: 24, tickInterval: 6,
         opposite: true,
         gridLineWidth: 0,
-        labels: { style: { color: "#ef4444" } }
+        labels: { style: { color: "#f87171" } }
       }
     ],
     plotOptions: {
@@ -237,7 +237,7 @@ const TruckDashboard = () => {
         type: "column",
         yAxis: 0,
         data: counts,
-        dataLabels: { enabled: true, style: { fontWeight: "bold", color: "#1f2937", textOutline: "none" } }
+        dataLabels: { enabled: true, style: { fontWeight: "bold", color: "#e2e8f0", textOutline: "none" } }
       },
       {
         name: "Densidad",
@@ -286,12 +286,12 @@ const TruckDashboard = () => {
   }, [activeData]);
 
   return (
-    <div className="flex flex-col gap-4 p-4 min-h-full bg-[#f1f5f9]">
+    <div className="flex flex-col gap-4 p-4 min-h-full bg-transparent">
       {/* HEADER TITLE */}
       <div className="flex justify-between items-start mb-2">
         <div>
-          <h1 className="text-xl font-bold text-slate-800 tracking-tight leading-tight">Análisis de datos por Ruta - Camion</h1>
-          <p className="text-sm text-slate-500 font-medium">Análisis de datos por Ruta - Camion</p>
+          <h1 className="text-xl font-bold text-white tracking-tight leading-tight">Análisis de datos por Ruta - Camion</h1>
+          <p className="text-sm text-slate-400 font-medium">Análisis de datos por Ruta - Camion</p>
         </div>
         {/* <button className="bg-[#00a859] hover:bg-green-600 text-white px-4 py-2 rounded font-semibold text-sm flex items-center gap-2 shadow-sm transition-colors">
           <FileDown size={16} />
@@ -300,9 +300,9 @@ const TruckDashboard = () => {
       </div>
 
       {/* FILTER BAR ROW */}
-      <div className="flex flex-wrap items-end gap-3 w-full border-b border-slate-200 pb-4">
-        <button className="btn-filter bg-white p-2 rounded border border-slate-200 shadow-sm text-slate-500 hover:bg-slate-50"><ListFilter size={18} /></button>
-        <button className="btn-filter bg-red-50 p-2 rounded border border-red-100 shadow-sm text-red-500 hover:bg-red-100"><RotateCcw size={18} /></button>
+      <div className="flex flex-wrap items-end gap-3 w-full border-b border-slate-800 pb-4">
+        <button className="btn-filter bg-slate-900 p-2 rounded border border-slate-800 shadow-sm text-slate-400 hover:bg-slate-800"><ListFilter size={18} /></button>
+        <button className="btn-filter bg-red-900/20 p-2 rounded border border-red-900/50 shadow-sm text-red-500 hover:bg-red-900/40"><RotateCcw size={18} /></button>
 
         {/* <div className="flex flex-col max-w-[200px] flex-1">
           <label className="text-xs text-slate-500 mb-1 font-medium">Rango de Fechas</label>
@@ -313,68 +313,68 @@ const TruckDashboard = () => {
         </div> */}
 
         <div className="flex flex-col w-[100px]">
-          <label className="text-xs text-slate-500 mb-1 font-medium">Turno</label>
+          <label className="text-xs text-slate-400 mb-1 font-medium">Turno</label>
           <div className="relative">
-            <select value={shiftFilter} onChange={e => setShiftFilter(e.target.value)} className="w-full text-sm text-black border-slate-200 border rounded py-1.5 pl-3 pr-8 appearance-none bg-white shadow-sm">
+            <select value={shiftFilter} onChange={e => setShiftFilter(e.target.value)} className="w-full text-sm text-slate-200 border-slate-700 border rounded py-1.5 pl-3 pr-8 appearance-none bg-slate-900 shadow-sm">
               <option>Todos</option>
             </select>
-            <ChevronDown size={14} className="absolute right-2.5 top-2.5 text-slate-400 pointer-events-none" />
+            <ChevronDown size={14} className="absolute right-2.5 top-2.5 text-slate-500 pointer-events-none" />
           </div>
         </div>
 
         <div className="flex gap-2">
           <div className="flex flex-col w-[70px]">
-            <label className="text-xs text-slate-500 mb-1 font-medium">Val. Min</label>
-            <input type="text" value="0" readOnly className="w-full text-sm text-black border-slate-200 border rounded py-1.5 px-3 bg-white shadow-sm" />
+            <label className="text-xs text-slate-400 mb-1 font-medium">Val. Min</label>
+            <input type="text" value="0" readOnly className="w-full text-sm text-slate-200 border-slate-700 border rounded py-1.5 px-3 bg-slate-900 shadow-sm" />
           </div>
           <div className="flex flex-col w-[10px] items-center justify-end pb-2">
-            <span className="text-slate-400">-</span>
+            <span className="text-slate-500">-</span>
           </div>
           <div className="flex flex-col w-[70px]">
-            <label className="text-xs text-slate-500 mb-1 font-medium">Val. Max</label>
-            <input type="text" value="100" readOnly className="w-full text-sm text-black border-slate-200 border rounded py-1.5 px-3 bg-white shadow-sm" />
+            <label className="text-xs text-slate-400 mb-1 font-medium">Val. Max</label>
+            <input type="text" value="100" readOnly className="w-full text-sm text-slate-200 border-slate-700 border rounded py-1.5 px-3 bg-slate-900 shadow-sm" />
           </div>
         </div>
 
         <div className="flex flex-col w-[140px]">
-          <label className="text-xs text-slate-500 mb-1 font-medium">Tipo de dato</label>
+          <label className="text-xs text-slate-400 mb-1 font-medium">Tipo de dato</label>
           <div className="relative">
-            <select value={metricType} onChange={(e) => setMetricType(e.target.value)} className="w-full text-sm text-black border-slate-200 border rounded py-1.5 pl-3 pr-8 appearance-none bg-white shadow-sm">
+            <select value={metricType} onChange={(e) => setMetricType(e.target.value)} className="w-full text-sm text-slate-200 border-slate-700 border rounded py-1.5 pl-3 pr-8 appearance-none bg-slate-900 shadow-sm">
               <option value="gal/h">gal/h</option>
               <option value="velocidad">Velocidad (km/h)</option>
               <option value="combustible">Combustible (gal)</option>
             </select>
-            <ChevronDown size={14} className="absolute right-2.5 top-2.5 text-slate-400 pointer-events-none" />
+            <ChevronDown size={14} className="absolute right-2.5 top-2.5 text-slate-500 pointer-events-none" />
           </div>
         </div>
 
         <div className="flex flex-col w-[110px]">
-          <label className="text-xs text-slate-500 mb-1 font-medium">Ruta</label>
+          <label className="text-xs text-slate-400 mb-1 font-medium">Ruta</label>
           <div className="relative">
-            <select value={routeFilter} onChange={e => setRouteFilter(e.target.value)} className="w-full text-sm text-black border-slate-200 border rounded py-1.5 pl-3 pr-8 appearance-none bg-white shadow-sm">
+            <select value={routeFilter} onChange={e => setRouteFilter(e.target.value)} className="w-full text-sm text-slate-200 border-slate-700 border rounded py-1.5 pl-3 pr-8 appearance-none bg-slate-900 shadow-sm">
               <option>Ruta_1</option>
             </select>
-            <ChevronDown size={14} className="absolute right-2.5 top-2.5 text-slate-400 pointer-events-none" />
+            <ChevronDown size={14} className="absolute right-2.5 top-2.5 text-slate-500 pointer-events-none" />
           </div>
         </div>
 
         <div className="flex flex-col w-[110px]">
-          <label className="text-xs text-slate-500 mb-1 font-medium">Tramo</label>
+          <label className="text-xs text-slate-400 mb-1 font-medium">Tramo</label>
           <div className="relative">
-            <select value={tramoFilter} onChange={e => setTramoFilter(e.target.value)} className="w-full text-sm text-black border-slate-200 border rounded py-1.5 pl-3 pr-8 appearance-none bg-white shadow-sm">
+            <select value={tramoFilter} onChange={e => setTramoFilter(e.target.value)} className="w-full text-sm text-slate-200 border-slate-700 border rounded py-1.5 pl-3 pr-8 appearance-none bg-slate-900 shadow-sm">
               <option>PB4 - PB7</option>
             </select>
-            <ChevronDown size={14} className="absolute right-2.5 top-2.5 text-slate-400 pointer-events-none" />
+            <ChevronDown size={14} className="absolute right-2.5 top-2.5 text-slate-500 pointer-events-none" />
           </div>
         </div>
 
         <div className="flex flex-col w-[200px] ml-auto">
-          <label className="text-xs border-b font-bold text-slate-800 bg-transparent px-1 pb-1 inline-block -mb-px relative z-10 w-max border-slate-800">Camiones:</label>
-          <div className="flex border border-slate-200 bg-white rounded shadow-sm overflow-hidden mt-[1px]">
+          <label className="text-xs border-b font-bold text-white bg-transparent px-1 pb-1 inline-block -mb-px relative z-10 w-max border-slate-700">Camiones:</label>
+          <div className="flex border border-slate-700 bg-slate-900 rounded shadow-sm overflow-hidden mt-[1px]">
             <select
               value={selectedTruck}
               onChange={(e) => setSelectedTruck(e.target.value)}
-              className="flex-1 text-sm bg-white pl-3 pr-8 py-1.5 focus:outline-none appearance-none font-medium text-slate-700"
+              className="flex-1 text-sm bg-slate-900 pl-3 pr-8 py-1.5 focus:outline-none appearance-none font-medium text-slate-300"
             >
               <option value="Todos los camiones">Todos los camiones</option>
               {allUniqueTrucks.map((truck) => (
@@ -391,27 +391,27 @@ const TruckDashboard = () => {
       <div className="flex flex-col lg:flex-row gap-4 w-full h-[500px]">
 
         {/* LEFT CARD */}
-        <div className="flex flex-col flex-1 bg-white rounded-xl shadow-[0_2px_10px_-3px_rgba(0,0,0,0.1)] border border-slate-100 overflow-hidden">
-          <div className="flex justify-between items-center p-3 border-b border-slate-100">
-            <div className="flex bg-slate-100 rounded p-1 gap-1">
+        <div className="flex flex-col flex-1 bg-slate-900 rounded-xl border border-slate-800 overflow-hidden">
+          <div className="flex justify-between items-center p-3 border-b border-slate-800">
+            <div className="flex bg-slate-800/80 rounded p-1 gap-1 border border-slate-700">
               <button
                 onClick={() => setChartView('line')}
-                className={`flex items-center gap-1.5 px-3 py-1 rounded text-xs font-semibold transition-colors ${chartView === 'line' ? 'bg-[#3b82f6] text-white shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+                className={`flex items-center gap-1.5 px-3 py-1 rounded text-xs font-semibold transition-colors ${chartView === 'line' ? 'bg-blue-600/20 text-blue-400 shadow-sm border border-blue-500/30' : 'text-slate-400 hover:text-slate-200'}`}
               >
                 <LineChart size={14} /> Lineal
               </button>
               <button
                 onClick={() => setChartView('bar')}
-                className={`flex items-center gap-1.5 px-3 py-1 rounded text-xs font-semibold transition-colors ${chartView === 'bar' ? 'bg-[#3b82f6] text-white shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+                className={`flex items-center gap-1.5 px-3 py-1 rounded text-xs font-semibold transition-colors ${chartView === 'bar' ? 'bg-blue-600/20 text-blue-400 shadow-sm border border-blue-500/30' : 'text-slate-400 hover:text-slate-200'}`}
               >
                 <BarChart2 size={14} /> Barras
               </button>
             </div>
             <div className="relative">
-              <select value={timeView} onChange={e => setTimeView(e.target.value)} className="text-sm border-slate-200 border rounded py-1 pl-3 pr-8 appearance-none bg-white shadow-sm text-slate-700">
+              <select value={timeView} onChange={e => setTimeView(e.target.value)} className="text-sm border-slate-700 border rounded py-1 pl-3 pr-8 appearance-none bg-slate-900 shadow-sm text-slate-300">
                 <option>Por día</option>
               </select>
-              <ChevronDown size={14} className="absolute right-2.5 top-1.5 text-slate-400 pointer-events-none" />
+              <ChevronDown size={14} className="absolute right-2.5 top-1.5 text-slate-500 pointer-events-none" />
             </div>
           </div>
           <div className="flex-1 px-4 pb-2 relative flex flex-col min-h-[340px]">
@@ -420,37 +420,37 @@ const TruckDashboard = () => {
             {/* Left Stats Grid */}
             {showLeftStats && (
               <div className="grid grid-cols-4 grid-rows-[40px_40px] gap-1 text-center mt-2 mb-6">
-                <div className="bg-blue-50 p-1 rounded-lg flex flex-col items-center justify-center gap-0.5">
-                  <p className="text-[9px] text-blue-600 font-medium leading-none">Total Vehículos</p>
-                  <p className="text-[14px] font-bold text-blue-800 leading-none">5 Camiones</p>
+                <div className="bg-slate-800/50 border border-slate-700/50 p-1 rounded-lg flex flex-col items-center justify-center gap-0.5">
+                  <p className="text-[9px] text-blue-400 font-medium leading-none">Total Vehículos</p>
+                  <p className="text-[14px] font-bold text-blue-400 leading-none">5 Camiones</p>
                 </div>
-                <div className="bg-sky-50 p-1 rounded-lg flex flex-col items-center justify-center gap-0.5">
-                  <p className="text-[9px] text-sky-600 font-medium leading-none">Total Toneladas</p>
-                  <p className="text-[14px] font-bold text-sky-800 leading-none">385.25 KTon</p>
+                <div className="bg-slate-800/50 border border-slate-700/50 p-1 rounded-lg flex flex-col items-center justify-center gap-0.5">
+                  <p className="text-[9px] text-sky-400 font-medium leading-none">Total Toneladas</p>
+                  <p className="text-[14px] font-bold text-sky-400 leading-none">385.25 KTon</p>
                 </div>
-                <div className="bg-amber-50 p-1 rounded-lg flex flex-col items-center justify-center gap-0.5">
-                  <p className="text-[9px] text-amber-600 font-medium leading-none">Total Gal Camiones</p>
-                  <p className="text-[14px] font-bold text-amber-800 leading-none">575.05 GAL</p>
+                <div className="bg-slate-800/50 border border-slate-700/50 p-1 rounded-lg flex flex-col items-center justify-center gap-0.5">
+                  <p className="text-[9px] text-amber-400 font-medium leading-none">Total Gal Camiones</p>
+                  <p className="text-[14px] font-bold text-amber-400 leading-none">575.05 GAL</p>
                 </div>
-                <div className="bg-emerald-50 p-1 rounded-lg flex flex-col items-center justify-center gap-0.5">
-                  <p className="text-[9px] text-emerald-600 font-medium leading-none">H Trabajadas</p>
-                  <p className="text-[14px] font-bold text-emerald-800 leading-none">1,120.4 h</p>
+                <div className="bg-slate-800/50 border border-slate-700/50 p-1 rounded-lg flex flex-col items-center justify-center gap-0.5">
+                  <p className="text-[9px] text-emerald-400 font-medium leading-none">H Trabajadas</p>
+                  <p className="text-[14px] font-bold text-emerald-400 leading-none">1,120.4 h</p>
                 </div>
-                <div className="bg-blue-50 p-1 rounded-lg flex flex-col items-center justify-center gap-0.5">
-                  <p className="text-[9px] text-blue-600 font-medium leading-none">GL/KM</p>
-                  <p className="text-[14px] font-bold text-blue-800 leading-none">4.12</p>
+                <div className="bg-slate-800/50 border border-slate-700/50 p-1 rounded-lg flex flex-col items-center justify-center gap-0.5">
+                  <p className="text-[9px] text-blue-400 font-medium leading-none">GL/KM</p>
+                  <p className="text-[14px] font-bold text-blue-400 leading-none">4.12</p>
                 </div>
-                <div className="bg-stone-50 p-1 rounded-lg flex flex-col items-center justify-center gap-0.5">
-                  <p className="text-[9px] text-stone-600 font-medium leading-none">GAL/KTon - Tramo</p>
-                  <p className="text-[14px] font-bold text-stone-800 leading-none">1.49</p>
+                <div className="bg-slate-800/50 border border-slate-700/50 p-1 rounded-lg flex flex-col items-center justify-center gap-0.5">
+                  <p className="text-[9px] text-slate-400 font-medium leading-none">GAL/KTon - Tramo</p>
+                  <p className="text-[14px] font-bold text-slate-300 leading-none">1.49</p>
                 </div>
-                <div className="bg-indigo-50 p-1 rounded-lg flex flex-col items-center justify-center gap-0.5">
-                  <p className="text-[9px] text-indigo-600 font-medium leading-none">DMT</p>
-                  <p className="text-[14px] font-bold text-indigo-800 leading-none">0.86</p>
+                <div className="bg-slate-800/50 border border-slate-700/50 p-1 rounded-lg flex flex-col items-center justify-center gap-0.5">
+                  <p className="text-[9px] text-indigo-400 font-medium leading-none">DMT</p>
+                  <p className="text-[14px] font-bold text-indigo-400 leading-none">0.86</p>
                 </div>
-                <div className="bg-lime-50 p-1 rounded-lg flex flex-col items-center justify-center gap-0.5">
-                  <p className="text-[9px] text-lime-600 font-medium leading-none">CM</p>
-                  <p className="text-[14px] font-bold text-lime-800 leading-none">42.5</p>
+                <div className="bg-slate-800/50 border border-slate-700/50 p-1 rounded-lg flex flex-col items-center justify-center gap-0.5">
+                  <p className="text-[9px] text-lime-400 font-medium leading-none">CM</p>
+                  <p className="text-[14px] font-bold text-lime-400 leading-none">42.5</p>
                 </div>
               </div>
             )}
@@ -458,7 +458,7 @@ const TruckDashboard = () => {
             <div className="absolute bottom-1 w-full left-0 flex justify-center pb-1">
               <button
                 onClick={() => setShowLeftStats(!showLeftStats)}
-                className="text-[10px] text-zinc-400 font-medium hover:text-blue-600 transition-colors bg-white px-2 py-0.5 rounded shadow-sm border border-slate-100"
+                className="text-[10px] text-slate-400 font-medium hover:text-blue-400 transition-colors bg-slate-800 px-2 py-0.5 rounded shadow-sm border border-slate-700"
               >
                 {showLeftStats ? "- Ver menos detalles" : "+ Ver más detalles"}
               </button>
@@ -467,36 +467,36 @@ const TruckDashboard = () => {
         </div>
 
         {/* RIGHT CARD */}
-        <div className="w-full lg:w-[400px] bg-white rounded-xl shadow-[0_2px_10px_-3px_rgba(0,0,0,0.1)] border border-slate-100 flex flex-col pt-2 bg-white relative">
+        <div className="w-full lg:w-[400px] bg-slate-900 rounded-xl border border-slate-800 flex flex-col pt-2 relative">
           <div className="flex-1 px-4 relative flex flex-col min-h-[340px]">
             <HighchartsReact highcharts={Highcharts} options={rightChartOptions} containerProps={{ className: "flex-1" }} />
 
             {/* Right Stats Grid */}
             {showRightStats && (
               <div className="grid grid-cols-3 grid-rows-[40px_40px] gap-1 text-center mt-2 mb-6">
-                <div className="bg-blue-50 p-1 rounded-lg flex flex-col items-center justify-center gap-0.5">
-                  <p className="text-[9px] text-blue-600 font-medium leading-none">Total de Registros</p>
-                  <p className="text-[14px] font-bold text-blue-800 leading-none">{rightStats.total}</p>
+                <div className="bg-slate-800/50 border border-slate-700/50 p-1 rounded-lg flex flex-col items-center justify-center gap-0.5">
+                  <p className="text-[9px] text-blue-400 font-medium leading-none">Total de Registros</p>
+                  <p className="text-[14px] font-bold text-blue-400 leading-none">{rightStats.total}</p>
                 </div>
-                <div className="bg-green-50 p-1 rounded-lg flex flex-col items-center justify-center gap-0.5">
-                  <p className="text-[9px] text-green-600 font-medium leading-none">Rango Más Frecuente</p>
-                  <p className="text-[14px] font-bold text-green-800 leading-none">{rightStats.mostFrequent}</p>
+                <div className="bg-slate-800/50 border border-slate-700/50 p-1 rounded-lg flex flex-col items-center justify-center gap-0.5">
+                  <p className="text-[9px] text-green-400 font-medium leading-none">Rango Más Frecuente</p>
+                  <p className="text-[14px] font-bold text-green-400 leading-none">{rightStats.mostFrequent}</p>
                 </div>
-                <div className="bg-red-50 p-1 rounded-lg flex flex-col items-center justify-center gap-0.5">
-                  <p className="text-[9px] text-red-600 font-medium leading-none">Desv. Estándar</p>
-                  <p className="text-[14px] font-bold text-red-800 leading-none">{rightStats.stdDev} <span className="text-[8px] font-normal">{rightStats.metricTitle}</span></p>
+                <div className="bg-slate-800/50 border border-slate-700/50 p-1 rounded-lg flex flex-col items-center justify-center gap-0.5">
+                  <p className="text-[9px] text-red-400 font-medium leading-none">Desv. Estándar</p>
+                  <p className="text-[14px] font-bold text-red-400 leading-none">{rightStats.stdDev} <span className="text-[8px] font-normal">{rightStats.metricTitle}</span></p>
                 </div>
-                <div className="bg-orange-50 p-1 rounded-lg flex flex-col items-center justify-center gap-0.5">
-                  <p className="text-[9px] text-orange-600 font-medium leading-none">Valor Mínimo</p>
-                  <p className="text-[14px] font-bold text-orange-800 leading-none">{rightStats.min} <span className="text-[8px] font-normal">{rightStats.metricTitle}</span></p>
+                <div className="bg-slate-800/50 border border-slate-700/50 p-1 rounded-lg flex flex-col items-center justify-center gap-0.5">
+                  <p className="text-[9px] text-orange-400 font-medium leading-none">Valor Mínimo</p>
+                  <p className="text-[14px] font-bold text-orange-400 leading-none">{rightStats.min} <span className="text-[8px] font-normal">{rightStats.metricTitle}</span></p>
                 </div>
-                <div className="bg-purple-50 p-1 rounded-lg flex flex-col items-center justify-center gap-0.5">
-                  <p className="text-[9px] text-purple-600 font-medium leading-none">Promedio</p>
-                  <p className="text-[14px] font-bold text-purple-800 leading-none">{rightStats.avg} <span className="text-[8px] font-normal">{rightStats.metricTitle}</span></p>
+                <div className="bg-slate-800/50 border border-slate-700/50 p-1 rounded-lg flex flex-col items-center justify-center gap-0.5">
+                  <p className="text-[9px] text-purple-400 font-medium leading-none">Promedio</p>
+                  <p className="text-[14px] font-bold text-purple-400 leading-none">{rightStats.avg} <span className="text-[8px] font-normal">{rightStats.metricTitle}</span></p>
                 </div>
-                <div className="bg-indigo-50 p-1 rounded-lg flex flex-col items-center justify-center gap-0.5">
-                  <p className="text-[9px] text-indigo-600 font-medium leading-none">Valor Máximo</p>
-                  <p className="text-[14px] font-bold text-indigo-800 leading-none">{rightStats.max} <span className="text-[8px] font-normal">{rightStats.metricTitle}</span></p>
+                <div className="bg-slate-800/50 border border-slate-700/50 p-1 rounded-lg flex flex-col items-center justify-center gap-0.5">
+                  <p className="text-[9px] text-indigo-400 font-medium leading-none">Valor Máximo</p>
+                  <p className="text-[14px] font-bold text-indigo-400 leading-none">{rightStats.max} <span className="text-[8px] font-normal">{rightStats.metricTitle}</span></p>
                 </div>
               </div>
             )}
@@ -504,7 +504,7 @@ const TruckDashboard = () => {
             <div className="absolute bottom-1 w-full left-0 flex justify-center pb-1">
               <button
                 onClick={() => setShowRightStats(!showRightStats)}
-                className="text-[10px] text-zinc-400 font-medium hover:text-blue-600 transition-colors bg-white px-2 py-0.5 rounded shadow-sm border border-slate-100"
+                className="text-[10px] text-slate-400 font-medium hover:text-blue-400 transition-colors bg-slate-800 px-2 py-0.5 rounded shadow-sm border border-slate-700"
               >
                 {showRightStats ? "- Ver menos detalles" : "+ Ver más detalles"}
               </button>
@@ -514,10 +514,10 @@ const TruckDashboard = () => {
       </div>
 
       {/* DATA TABLE BLOCK */}
-      <div className="bg-white rounded-xl shadow-[0_2px_10px_-3px_rgba(0,0,0,0.1)] border border-slate-100 overflow-hidden flex flex-col flex-1 mt-2">
+      <div className="bg-slate-900 rounded-xl border border-slate-800 overflow-hidden flex flex-col flex-1 mt-2">
         <div className="overflow-x-auto">
           <table className="w-full text-[11px] text-center border-collapse">
-            <thead className="text-slate-500 font-medium border-b border-slate-200">
+            <thead className="bg-slate-800/50 text-slate-300 font-medium border-b border-slate-700">
               <tr>
                 <th className="px-3 py-3 font-semibold text-left">Unidad</th>
                 <th className="px-3 py-3 font-semibold">Fecha</th>
@@ -534,20 +534,20 @@ const TruckDashboard = () => {
                 <th className="px-3 py-3 font-semibold">Desvió</th>
               </tr>
             </thead>
-            <tbody className="bg-white">
+            <tbody className="bg-transparent">
               {tableData.map((row, i) => (
-                <tr key={i} className="border-b border-slate-100 hover:bg-slate-50 transition-colors">
-                  <td className="p-3 text-blue-600 font-semibold flex items-center gap-1.5 min-w-[100px]">
-                    <span className="w-4 h-4 rounded bg-blue-100 flex items-center justify-center"><div className="w-1.5 h-1.5 border-t border-r border-blue-600 rotate-45"></div></span>
+                <tr key={i} className="border-b border-slate-800 hover:bg-slate-800/50 transition-colors">
+                  <td className="p-3 text-blue-400 font-semibold flex items-center gap-1.5 min-w-[100px]">
+                    <span className="w-4 h-4 rounded bg-blue-900/30 flex items-center justify-center"><div className="w-1.5 h-1.5 border-t border-r border-blue-400 rotate-45"></div></span>
                     {row.unit}
                   </td>
                   <td className="p-3 text-slate-400 text-center">-</td>
-                  <td className="p-3 text-slate-700 text-center">{row.viajes}</td>
-                  <td className="p-3 text-[#00a859] font-bold text-center">{row.speed}</td>
+                  <td className="p-3 text-slate-300 text-center">{row.viajes}</td>
+                  <td className="p-3 text-emerald-400 font-bold text-center">{row.speed}</td>
                   <td className="p-3 text-red-500 font-bold text-center">{row.fuel}</td>
-                  <td className="p-3 text-slate-700 text-center">{row.dist}</td>
-                  <td className="p-3 text-slate-700 text-center">{row.time}</td>
-                  <td className="p-3 text-slate-800 font-bold text-center">{row.ton}</td>
+                  <td className="p-3 text-slate-300 text-center">{row.dist}</td>
+                  <td className="p-3 text-slate-300 text-center">{row.time}</td>
+                  <td className="p-3 text-white font-bold text-center">{row.ton}</td>
                   <td className="p-3 text-red-500 font-bold text-center">{row.r_galh}</td>
                   <td className="p-3 text-red-500 font-bold text-center">{row.r_galton}</td>
                   <td className="p-3 text-red-500 font-bold text-center">{row.r_galtonkm}</td>
@@ -560,7 +560,7 @@ const TruckDashboard = () => {
         </div>
 
         {/* BOTTOM PAGINATION ROW */}
-        <div className="flex items-center justify-between p-3 border-t border-slate-200 bg-white">
+        <div className="flex items-center justify-between p-3 border-t border-slate-800 bg-slate-900">
           <div className="flex items-center gap-4">
             <span className="text-[11px] text-slate-400 font-medium">Mostrando 1 a {tableData.length} de {tableData.length} resultados</span>
             {/* <button className="bg-[#00a859] hover:bg-green-600 text-white px-3 py-1.5 rounded font-semibold text-[11px] flex items-center gap-1.5 transition-colors">
@@ -568,15 +568,15 @@ const TruckDashboard = () => {
             </button> */}
           </div>
           <div className="flex items-center gap-2 text-[11px]">
-            <select className="border border-slate-200 rounded px-2 py-1 text-slate-600 shadow-sm outline-none">
+            <select className="border border-slate-700 rounded px-2 py-1 bg-slate-800 text-slate-300 shadow-sm outline-none">
               <option>20 por página</option>
             </select>
             <div className="flex gap-1">
-              <button className="w-8 h-7 border border-slate-200 rounded flex items-center justify-center text-slate-400 bg-slate-50 leading-none">&lt;&lt;</button>
-              <button className="w-6 h-7 border border-slate-200 rounded flex items-center justify-center text-slate-400 bg-slate-50 leading-none">&lt;</button>
-              <span className="px-2 flex items-center text-slate-600">Página 1 de 1</span>
-              <button className="w-6 h-7 border border-slate-200 rounded flex items-center justify-center text-slate-400 bg-slate-50 leading-none">&gt;</button>
-              <button className="w-8 h-7 border border-slate-200 rounded flex items-center justify-center text-slate-400 bg-slate-50 leading-none">&gt;&gt;</button>
+              <button className="w-8 h-7 border border-slate-700 rounded flex items-center justify-center text-slate-400 bg-slate-800 hover:bg-slate-700 transition leading-none">&lt;&lt;</button>
+              <button className="w-6 h-7 border border-slate-700 rounded flex items-center justify-center text-slate-400 bg-slate-800 hover:bg-slate-700 transition leading-none">&lt;</button>
+              <span className="px-2 flex items-center text-slate-400">Página 1 de 1</span>
+              <button className="w-6 h-7 border border-slate-700 rounded flex items-center justify-center text-slate-400 bg-slate-800 hover:bg-slate-700 transition leading-none">&gt;</button>
+              <button className="w-8 h-7 border border-slate-700 rounded flex items-center justify-center text-slate-400 bg-slate-800 hover:bg-slate-700 transition leading-none">&gt;&gt;</button>
             </div>
           </div>
         </div>

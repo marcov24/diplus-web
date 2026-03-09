@@ -41,7 +41,7 @@ export default function EmbeddedDemo() {
 
       {/* Content area: fills the container with left padding for collapsed sidebar */}
       <div className="absolute inset-0 pl-[70px] z-0">
-        <div className="h-full w-full flex flex-col bg-[#E0E1E1] rounded-br-xl overflow-y-auto overflow-x-hidden">
+        <div className="h-full w-full flex flex-col bg-slate-950 rounded-br-xl overflow-y-auto overflow-x-hidden">
           <div
             className={clsx(
               "flex flex-col gap-2 flex-1",

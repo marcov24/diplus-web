@@ -29,22 +29,22 @@ const OperatorPerformance = () => {
 
   const scatterOptions: Highcharts.Options = {
     chart: { type: "scatter", height: 400, backgroundColor: "transparent" },
-    title: { text: "Eficiencia vs Velocidad por Operador", align: "left", style: { fontSize: "16px", fontWeight: "bold" } },
-    xAxis: { title: { text: "Velocidad Promedio (km/h)" } },
-    yAxis: { title: { text: "Consumo (Gal/h)" } },
+    title: { text: "Eficiencia vs Velocidad por Operador", align: "left", style: { fontSize: "16px", fontWeight: "bold", color: "#e2e8f0" } },
+    xAxis: { title: { text: "Velocidad Promedio (km/h)", style: { color: "#94a3b8" } }, labels: { style: { color: "#94a3b8" } } },
+    yAxis: { title: { text: "Consumo (Gal/h)", style: { color: "#94a3b8" } }, labels: { style: { color: "#94a3b8" } }, gridLineColor: "#334155" },
     legend: { enabled: false },
     plotOptions: { scatter: { marker: { radius: 6 }, tooltip: { headerFormat: "<b>{point.key}</b><br>", pointFormat: "{point.x:.1f} km/h, {point.y:.1f} Gal/h" } } },
     credits: { enabled: false },
-    series: [{ name: "Operadores", type: "scatter", color: "rgba(59, 130, 246, 0.6)", data: stats.list.map((o) => ({ x: parseFloat(o.avgSpeed.toFixed(1)), y: parseFloat(o.efficiency.toFixed(1)), name: o.name })) }] as any,
+    series: [{ name: "Operadores", type: "scatter", color: "rgba(59, 130, 246, 0.8)", data: stats.list.map((o) => ({ x: parseFloat(o.avgSpeed.toFixed(1)), y: parseFloat(o.efficiency.toFixed(1)), name: o.name })) }] as any,
   };
 
   const barOptions: Highcharts.Options = {
     chart: { type: "bar", height: 400, backgroundColor: "transparent" },
-    title: { text: "Porcentaje de Ralentí por Operador", align: "left", style: { fontSize: "16px", fontWeight: "bold" } },
-    xAxis: { categories: stats.list.map((o) => o.name) },
-    yAxis: { min: 0 },
+    title: { text: "Porcentaje de Ralentí por Operador", align: "left", style: { fontSize: "16px", fontWeight: "bold", color: "#e2e8f0" } },
+    xAxis: { categories: stats.list.map((o) => o.name), labels: { style: { color: "#94a3b8" } } },
+    yAxis: { min: 0, title: { text: undefined }, labels: { style: { color: "#94a3b8" } }, gridLineColor: "#334155" },
     legend: { enabled: false },
-    plotOptions: { bar: { borderRadius: 4, dataLabels: { enabled: true, format: "{point.y:.1f}%" } } },
+    plotOptions: { bar: { borderRadius: 4, dataLabels: { enabled: true, format: "{point.y:.1f}%", style: { color: "#e2e8f0", textOutline: "none" } } } },
     credits: { enabled: false },
     series: [{ name: "Ralentí", type: "bar", data: stats.list.map((o) => parseFloat(o.idlePercent.toFixed(1))), color: "#ef4444" }],
   };
@@ -60,42 +60,42 @@ const OperatorPerformance = () => {
 
   return (
     <>
-      <div className="flex items-center justify-between bg-white p-3 rounded-xl shadow-sm border border-gray-100">
+      <div className="flex items-center justify-between bg-slate-900 p-3 rounded-xl shadow-sm border border-slate-800">
         <div>
-          <h1 className="text-lg font-bold text-gray-800">Desempeño de Operadores</h1>
-          <p className="text-xs text-gray-500">Análisis detallado de productividad, consumo y uso de equipo</p>
+          <h1 className="text-lg font-bold text-slate-200">Desempeño de Operadores</h1>
+          <p className="text-xs text-slate-400">Análisis detallado de productividad, consumo y uso de equipo</p>
         </div>
       </div>
 
       {/* KPI Cards */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2">
         {kpiCards.map((kpi, i) => (
-          <div key={i} className="bg-white p-4 rounded-xl shadow-sm border border-slate-100 flex flex-col items-center justify-center text-center">
+          <div key={i} className="bg-slate-900 p-4 rounded-xl shadow-sm border border-slate-800 flex flex-col items-center justify-center text-center">
             <div className="mb-2">{kpi.icon}</div>
-            <span className="text-2xl font-bold text-slate-800">{kpi.value}</span>
-            <span className="text-xs text-slate-500">{kpi.label}</span>
+            <span className="text-2xl font-bold text-white">{kpi.value}</span>
+            <span className="text-xs text-slate-400">{kpi.label}</span>
           </div>
         ))}
       </div>
 
       {/* Charts */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
-        <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+        <div className="bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-800">
           <HighchartsReact highcharts={Highcharts} options={scatterOptions} />
         </div>
-        <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+        <div className="bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-800">
           <HighchartsReact highcharts={Highcharts} options={barOptions} />
         </div>
       </div>
 
       {/* Table */}
-      <div className="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden">
-        <div className="p-4 border-b border-slate-100">
-          <h3 className="font-bold text-lg text-slate-800">Detalle por Operador</h3>
+      <div className="bg-slate-900 rounded-xl shadow-sm border border-slate-800 overflow-hidden">
+        <div className="p-4 border-b border-slate-800">
+          <h3 className="font-bold text-lg text-white">Detalle por Operador</h3>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-sm text-left">
-            <thead className="bg-slate-50 text-slate-600 font-semibold border-b border-slate-200">
+            <thead className="bg-slate-800/50 text-slate-300 font-semibold border-b border-slate-700">
               <tr>
                 <th className="px-6 py-3">Operador</th>
                 <th className="px-6 py-3">Unidad</th>
@@ -107,22 +107,22 @@ const OperatorPerformance = () => {
                 <th className="px-6 py-3">% Ralentí</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100">
+            <tbody className="divide-y divide-slate-800">
               {sortedList.map((row) => (
-                <tr key={row.name} className="hover:bg-slate-50 transition-colors">
-                  <td className="px-6 py-4 font-medium text-slate-800">{row.name}</td>
-                  <td className="px-6 py-4"><span className="text-xs font-mono text-slate-500 bg-slate-200 px-2 py-0.5 rounded">{row.unit}</span></td>
-                  <td className="px-6 py-4 text-blue-600 font-bold">{row.totalFuel.toFixed(1)}</td>
-                  <td className="px-6 py-4 text-green-600 font-semibold">{row.efficiency.toFixed(1)}</td>
-                  <td className="px-6 py-4 text-slate-600 font-semibold">{row.avgSpeed.toFixed(1)}</td>
-                  <td className="px-6 py-4 text-slate-600 font-semibold">{row.totalDist.toFixed(1)}</td>
-                  <td className="px-6 py-4 text-slate-600 font-semibold">{row.totalTime.toFixed(1)}</td>
+                <tr key={row.name} className="hover:bg-slate-800/50 transition-colors">
+                  <td className="px-6 py-4 font-medium text-slate-200">{row.name}</td>
+                  <td className="px-6 py-4"><span className="text-xs font-mono text-slate-400 bg-slate-800 px-2 py-0.5 rounded">{row.unit}</span></td>
+                  <td className="px-6 py-4 text-blue-400 font-bold">{row.totalFuel.toFixed(1)}</td>
+                  <td className="px-6 py-4 text-green-400 font-semibold">{row.efficiency.toFixed(1)}</td>
+                  <td className="px-6 py-4 text-slate-300 font-semibold">{row.avgSpeed.toFixed(1)}</td>
+                  <td className="px-6 py-4 text-slate-300 font-semibold">{row.totalDist.toFixed(1)}</td>
+                  <td className="px-6 py-4 text-slate-300 font-semibold">{row.totalTime.toFixed(1)}</td>
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-2">
-                      <div className="w-16 bg-slate-200 rounded-full h-1.5">
-                        <div className={`h-1.5 rounded-full ${row.idlePercent > 15 ? "bg-red-500" : "bg-green-500"}`} style={{ width: `${Math.min(row.idlePercent, 100)}%` }}></div>
+                      <div className="w-16 bg-slate-800 rounded-full h-1.5 border border-slate-700">
+                        <div className={`h-1.5 rounded-full ${row.idlePercent > 15 ? "bg-red-500" : "bg-emerald-500"}`} style={{ width: `${Math.min(row.idlePercent, 100)}%` }}></div>
                       </div>
-                      <span className="text-xs text-slate-500">{row.idlePercent.toFixed(1)}%</span>
+                      <span className="text-xs text-slate-400">{row.idlePercent.toFixed(1)}%</span>
                     </div>
                   </td>
                 </tr>
