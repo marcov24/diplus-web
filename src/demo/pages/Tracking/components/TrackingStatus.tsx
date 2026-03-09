@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { MdChevronRight } from "react-icons/md";
 import IconTruck from "../../../assets/icons/IconTruck";
-import clsx from "clsx";
+// import clsx from "clsx";
 
 // Instead of the missing ITruckStatusORF, we use a generic type 
 // that matches our MOCK_LIVE_TRUCKS data structure in the Demo

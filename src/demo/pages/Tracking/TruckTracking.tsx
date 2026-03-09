@@ -19,14 +19,14 @@ const defaultIcon = L.icon({
 });
 L.Marker.prototype.options.icon = defaultIcon;
 
-const statusColors: Record<string, string> = {
-  "En Ruta": "bg-green-100 text-green-700",
-  "Cargando": "bg-blue-100 text-blue-700",
-  "Descargando": "bg-yellow-100 text-yellow-700",
-  "Mantenimiento": "bg-red-100 text-red-700",
-};
+// const statusColors: Record<string, string> = {
+//   "En Ruta": "bg-green-100 text-green-700",
+//   "Cargando": "bg-blue-100 text-blue-700",
+//   "Descargando": "bg-yellow-100 text-yellow-700",
+//   "Mantenimiento": "bg-red-100 text-red-700",
+// };
 
-const createCustomIcon = (status: string, speed: number, unit: string) => {
+const createCustomIcon = (status: string, unit: string) => {
   const isOperating = status.toLowerCase().includes("operando") || status.toLowerCase().includes("ruta");
   const isWarning = status.toLowerCase().includes("descargando") || status.toLowerCase().includes("cargando") || status.toLowerCase().includes("demora");
   const colorClass = isOperating ? "bg-green-500" : isWarning ? "bg-orange-500" : "bg-red-500";
