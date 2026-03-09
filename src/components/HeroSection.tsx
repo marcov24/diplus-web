@@ -1,10 +1,10 @@
 import { useState } from 'react';
+
 import { motion } from 'framer-motion';
 import { ChevronDown, Cpu } from 'lucide-react';
 
 const HeroSection = ({ setCurrentView }: { setCurrentView: (view: 'home' | 'telemetry' | 'platform') => void }) => {
   const [activeCard, setActiveCard] = useState(1); // 0=left, 1=center, 2=right
-
   return (
     <section id="inicio" className="relative h-screen flex items-center justify-center overflow-hidden bg-slate-950">
       {/* Background Effects */}
@@ -34,6 +34,7 @@ const HeroSection = ({ setCurrentView }: { setCurrentView: (view: 'home' | 'tele
             <button onClick={() => setCurrentView('platform')} className="px-6 sm:px-8 py-3 sm:py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-lg font-semibold transition-all shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 cursor-pointer text-center">
               Explorar Plataforma
             </button>
+
             <a href="#objetivo" className="px-6 sm:px-8 py-3 sm:py-4 bg-slate-800 hover:bg-slate-700 text-white rounded-lg font-semibold transition-all border border-slate-700 text-center">
               Conocer Más
             </a>

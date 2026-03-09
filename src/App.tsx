@@ -12,11 +12,21 @@ import TelemetrySection from './components/TelemetrySection';
 import WhatsAppButton from './components/WhatsAppButton';
 import EmailButton from './components/EmailButton';
 
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import EmbeddedDemo from "./demo/components/EmbeddedDemo";
+import DemoLayout from "./demo/components/Layout";
+import TrackingPage from "./demo/pages/Tracking";
+import TruckTrackingPage from "./demo/pages/Tracking/TruckTracking";
+import TemporalSummary from "./demo/pages/Tracking/TemporalSummary";
+import OperatorPerformance from "./demo/pages/Tracking/OperatorPerformance";
+import TruckDashboard from "./demo/pages/Truck";
+import ConsumedByPeriods from "./demo/pages/Truck/ConsumedByPeriods";
+
 // Componente Principal
-const MiningDashboard = () => {
+const LandingPage = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [currentView, setCurrentView] = useState<'home' | 'telemetry' | 'platform'>('home');
+  const [currentView, setCurrentView] = useState<'home' | 'telemetry' | 'platform' | 'demo'>('home');
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -138,8 +148,16 @@ const MiningDashboard = () => {
           >
             {mobileMenuOpen ? <X /> : <Menu />}
           </button>
-          {/* Empty spacer for desktop third column */}
-          <div className="hidden md:block"></div>
+          {/* Navigation Third Column -> Demo Button */}
+          <div className="hidden md:flex justify-end col-start-3">
+            <button
+              onClick={() => setCurrentView('demo')}
+              className="px-5 py-2 bg-emerald-600/90 hover:bg-emerald-500 text-white text-sm font-semibold rounded-lg shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40 transition-all flex items-center gap-2 border border-emerald-500/50"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+              Ver Demo
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
@@ -188,7 +206,7 @@ const MiningDashboard = () => {
             </motion.div>
           )}
         </AnimatePresence>
-      </motion.nav>
+      </motion.nav >
 
       <main>
         {currentView === 'home' ? (
@@ -201,7 +219,7 @@ const MiningDashboard = () => {
           </>
         ) : currentView === 'telemetry' ? (
           <TelemetrySection />
-        ) : (
+        ) : currentView === 'platform' ? (
           <section id="plataforma" className="py-24 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-slate-950 to-slate-950 relative min-h-screen">
             <div className="container mx-auto px-6">
               <div className="text-center mb-16">
@@ -210,6 +228,45 @@ const MiningDashboard = () => {
               </div>
               {/* <MetricsBar /> */}
               <GalleryView />
+            </div>
+          </section>
+        ) : (
+          <section id="demo" className="relative min-h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-slate-950 to-slate-950 pt-24 pb-12 flex items-center justify-center">
+            {/* Background decorative glow */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+              <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[120px]"></div>
+              <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px]"></div>
+            </div>
+
+            <div className="container mx-auto px-4 lg:px-8 z-10 w-full flex flex-col items-center">
+              <div className="text-center mb-8">
+                <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 flex items-center justify-center gap-3">
+                  <span className="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span>
+                  Gunjop Live Demo
+                </h2>
+                <p className="text-slate-400 max-w-2xl mx-auto">Interactúa con nuestro dashboard de telemetría en tiempo real y descubre cómo optimizamos las operaciones mineras.</p>
+              </div>
+
+              {/* Mac/Browser Window Frame Container */}
+              <div className="w-full max-w-[1400px] h-[80vh] min-h-[700px] bg-[#E0E1E1] dark:bg-black rounded-xl shadow-2xl shadow-emerald-500/20 border border-slate-700/50 overflow-hidden flex flex-col flex-shrink-0">
+                {/* Window Header Bar */}
+                <div className="h-8 bg-slate-800 border-b border-slate-700/50 flex items-center px-4 shrink-0 justify-between select-none">
+                  <div className="flex gap-2">
+                    <div className="w-3 h-3 rounded-full bg-red-400/80"></div>
+                    <div className="w-3 h-3 rounded-full bg-amber-400/80"></div>
+                    <div className="w-3 h-3 rounded-full bg-emerald-400/80"></div>
+                  </div>
+                  <div className="text-xs text-slate-400 flex items-center gap-2 bg-slate-700/50 px-3 py-1 rounded">
+                    lock DIPLUS Web Platform
+                  </div>
+                  <div className="w-12"></div> {/* Spacer for symmetry */}
+                </div>
+
+                {/* Embedded Content Container */}
+                <div className="flex-1 relative overflow-hidden bg-white dark:bg-black flex">
+                  <EmbeddedDemo />
+                </div>
+              </div>
             </div>
           </section>
         )}
@@ -229,4 +286,30 @@ const MiningDashboard = () => {
   );
 };
 
-export default MiningDashboard;
+const App = () => {
+  return (
+    <BrowserRouter>
+      <Routes>
+        {/* Landing Page Route */}
+        <Route path="/" element={<LandingPage />} />
+
+        {/* Demo Sub-Routes (Internal routing for the DemoLayout container) */}
+        <Route element={<DemoLayout />}>
+          <Route path="demo" index element={<TruckTrackingPage />} />
+          <Route path="demo/tracking" element={<TrackingPage />} />
+          <Route path="demo/tracking/summary" element={<TemporalSummary />} />
+          <Route path="demo/tracking/operator-performance" element={<OperatorPerformance />} />
+          <Route path="demo/truck/dashboard" element={<TruckDashboard />} />
+          <Route path="demo/consumed-by-periods" element={<ConsumedByPeriods />} />
+          {/* Fallback for invalid demo paths */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Route>
+
+        {/* Global Fallback */}
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
+
+export default App;
