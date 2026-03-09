@@ -26,7 +26,7 @@ L.Marker.prototype.options.icon = defaultIcon;
 //   "Mantenimiento": "bg-red-100 text-red-700",
 // };
 
-const createCustomIcon = (status: string, unit: string) => {
+const createCustomIcon = (status: string, speed: number, unit: string) => {
   const isOperating = status.toLowerCase().includes("operando") || status.toLowerCase().includes("ruta");
   const isWarning = status.toLowerCase().includes("descargando") || status.toLowerCase().includes("cargando") || status.toLowerCase().includes("demora");
   const colorClass = isOperating ? "bg-green-500" : isWarning ? "bg-orange-500" : "bg-red-500";
